@@ -1,0 +1,76 @@
+.tweet {
+  padding: 20px 20px;
+  margin: 20px 0 0;
+  border-bottom: 1px solid #eee;
+  position: relative;
+  transition: .4s ease-out;
+}
+
+.tweet:hover {
+    border-bottom-color: #4bb0ee;
+}
+
+.tweet .remove-tweet {
+    position: absolute;
+    right: 10px;
+    top: 20px;
+    cursor: pointer;
+    display: block;
+    width: 30px;
+    height: 30px;
+}
+
+.tweet .remove-tweet::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4bb0ee;
+    width: 15px;
+    height: 2px;
+    transform: rotate(45deg);
+}
+
+.tweet .remove-tweet::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    background: #4bb0ee;
+    width: 15px;
+    height: 2px;
+    transform: rotate(-45deg);
+}
+
+.tweet strong {
+    text-transform: capitalize;
+}
+
+.tweet:first-child {
+  margin-top: 0;
+  padding-top: 0;
+}
+
+.tweet p {
+  margin: 15px 0;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.tweet button {
+  border: 0;
+  background: transparent;
+
+  display: flex;
+  align-items: center;
+  color: #697882;
+  cursor: pointer;
+}
+
+.tweet button img {
+  margin-right: 5px;
+}
+
+.tweet button:hover {
+  opacity: 0.7;
+}

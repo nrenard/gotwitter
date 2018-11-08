@@ -7,6 +7,7 @@ const LikeController = require('./controllers/LikeController');
 
 
 routes.get('/tweets', TweetController.index);
+routes.delete('/tweets/:id', TweetController.destroy);
 routes.post('/tweets', TweetController.store);
 
 routes.post('/likes/:id', LikeController.store);

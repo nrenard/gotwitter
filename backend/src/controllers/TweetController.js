@@ -8,10 +8,26 @@ module.exports = {
     },
 
     async store(req, res) {
-        const tweet = await Tweet.create(req.body);
+        try {
+            const tweet = await Tweet.create(req.body);
 
-        req.io.emit('tweet', tweet);
+            req.io.emit('tweet', tweet);
 
-        return res.json(tweet);
+            return res.json(tweet);
+        } catch (err) {
+            return res.status(200).json({ err })
+        }
+    },
+
+    async destroy(req, res) {
+        try {
+            const tweet = await Tweet.findByIdAndRemove(req.params.id);
+
+            req.io.emit('delete-tweet', tweet);
+
+            return res.json(tweet);
+        } catch (err) {
+            return res.status(200).json({ err })
+        }
     }
 }
